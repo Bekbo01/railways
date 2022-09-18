@@ -1,0 +1,249 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+<style type="text/css">.timeline-1 {
+  border-left: 3px solid #b565a7;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  background: rgba(177, 99, 163, 0.09);
+  margin: 0 auto;
+  position: relative;
+  padding: 50px;
+  list-style: none;
+  text-align: left;
+  max-width: 40%;
+}
+
+@media (max-width: 767px) {
+  .timeline-1 {
+    max-width: 98%;
+    padding: 25px;
+  }
+}
+
+.timeline-1 .event {
+  border-bottom: 1px dashed #000;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .timeline-1 .event {
+    padding-top: 30px;
+  }
+}
+
+.timeline-1 .event:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+.timeline-1 .event:before,
+.timeline-1 .event:after {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+.timeline-1 .event:before {
+  left: -207px;
+  content: attr(data-date);
+  text-align: right;
+  font-weight: 100;
+  font-size: 0.9em;
+  min-width: 120px;
+}
+
+@media (max-width: 767px) {
+  .timeline-1 .event:before {
+    left: 0px;
+    text-align: left;
+  }
+}
+
+.timeline-1 .event:after {
+  -webkit-box-shadow: 0 0 0 3px #b565a7;
+  box-shadow: 0 0 0 3px #b565a7;
+  left: -55.8px;
+  background: #fff;
+  border-radius: 50%;
+  height: 9px;
+  width: 9px;
+  content: "";
+  top: 5px;
+}
+
+@media (max-width: 767px) {
+  .timeline-1 .event:after {
+    left: -31.8px;
+  }
+}</style>
+<style type="text/css">
+  /* The actual timeline (the vertical ruler) */
+.main-timeline-5 {
+  position: relative;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.main-timeline-5::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background-color: #fff;
+  top: 0;
+  bottom: 0;
+  left: auto;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.timeline-5 {
+  position: relative;
+  background-color: inherit;
+  width: 100%;
+}
+
+/* The circles on the timeline */
+.timeline-5::after {
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  right: 1px;
+  background-color: #fff;
+  top: 18px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the right */
+.right-5 {
+  padding: 0px 0px 20px 40px;
+  left: auto;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right-5::before {
+  content: " ";
+  position: absolute;
+  top: 18px;
+  z-index: 1;
+  left: 30px;
+  border: medium solid #fff;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #fff transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right-5::after {
+  left: -10px;
+}
+
+@media (max-width: 991px) {
+  .main-timeline-5 {
+    max-width: 100%;
+  }
+}
+.gradient-custom-5 {
+  /* fallback for old browsers */
+  background: #ebbba7;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    rgba(235, 187, 167, 1),
+    rgba(207, 199, 248, 1)
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(
+    to right,
+    rgba(235, 187, 167, 1),
+    rgba(207, 199, 248, 1)
+  );
+}
+</style>
+
+
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="content">
+        <ul class="timeline-1 text-black">
+
+          <div class="card-body p-4">
+            <h5>Название задачи: {{ task.name }}</h5>
+            <span class="event"><i class="event"></i>{{ tasks.create_at }}</span>
+            <h4 class="mb-3">   <p class="event"><p>Начало работы: {{ task.work_at }}<p></h4>
+              <h4 class="mb-3">     <p>Проход медосведетельство: {% if task.check_med %} пройдено {% else %} нет{% endif %}</p></h4>
+                <h4 class="mb-3">     <p>Прием локомотива начало: {{ task.locomative_start }}<p></h4>
+                  <h4 class="mb-3">     <p>Прием локомотива конец: {{ task.locomative_end }}</p></h4>
+                    <h4 class="mb-3">     <p>Выезд из станций отправления: {{ task.departer_time }}</p></h4>
+                      <h4 class="mb-3">    <p>Ответсвенный: {{ task.user_position }}</p></h4>
+              <h4 class="mb-3">    <p>Приезд на станцию назначения: {{ task.arriving_time }}</p></h4>
+                <h4 class="mb-3">     <p>Сдача локомотива: {{ task.locomative_pass }}</p></h4>
+                       <p class="event"> <h4 class="mb-3">Завершение работы: {{ task.complate_task }} </h4></p>
+
+
+              </p>
+              
+          </div>
+
+
+
+          {% for each in depo %}
+          <li class="event" data-date="{{ each.date}}">
+            <h4 class="mb-3"><p>{{ each.date}} </p>{{ each.depochoice}}</h4>
+            <p>{{ each.point }}</p>
+            {% if request.user.user_position != 'Дежурный ДЕПО' %}
+              
+              {% if each.machine_eng_get == False %}
+              <a href= "{% url 'machine_approve' task.pk each.pk %}"><button type="submit" class="pure-button pure-button-primary">
+                Прибыл</button></a>
+              {% elif each.depo_eng_get == False %}
+              <h3><p style="color: red;">В ожидание ответа</p></h3>
+              {% elif each.machine_eng_pop == False %}
+              <a href= "{% url 'machine_unapprove' task.pk each.pk %}"><button type="submit" class="pure-button pure-button-primary">
+                Выехал </button></a>
+                {% elif each.depo_eng_pop == False %}
+              <h3><p style="color: red;">В ожидание ответа</p></h3>
+                {% else %}
+                   <h3><p style="color: green;">Выполнено</p></h3>
+                  {% endif %}
+              
+            {% else %}
+              
+              {% if each.depochoice.member == request.user %}
+                    {% if each.machine_eng_pop == True and  each.depo_eng_pop == False %}
+                   <a href= "{% url 'depo_unapprove' task.pk each.pk %}"><button type="submit" class="pure-button pure-button-primary">
+                    Выехал</button></a>
+                    {% elif each.machine_eng_get == True and  each.depo_eng_get == False %}
+                    <a href= "{% url 'depo_approve' task.pk each.pk %}"><button type="submit" class="pure-button pure-button-primary">
+                     Прибыл</button></a>
+                     {% else %}
+                     <h3><p style="color: green;">Выполнено</p></h3>
+                    {% endif %}
+
+              {% else %}
+              <a href= ""><button type="submit" class="pure-button pure-button-primary">
+                Нет доступа</button></a>
+              {% endif %}
+              {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+{% endblock %}

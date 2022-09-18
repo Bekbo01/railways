@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Login</title>
+{% endblock %}
+
+{% block body %}
+
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    
+    {% for field in form %}
+    <div class="fieldWrapper my-3">
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+    </div>
+    {% endfor %}
+    <p class="fw-bold">Forgot password? <a href="{% url 'password_reset' %}" class="text-decoration-none"> reset password</a></p>
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Home</h1>
+    {% for user in users %}
+    <p>{{user.username}}</p>
+    {% endfor %}
+    {% if user.is_authenticated %}
+    <h3 class="text-capitalize">Hello {{user.username}} 👋</h3>
+    <h3 class="text-capitalize">{{user.user}}</h3>
+    {% for task in tasks %}
+    <div class="card" style="width: 18rem; margin: 10px">
+        <img src="https://i.auto-bild.de/mdb/extra_large/62/aklasse-bb5.png" class="card-img-top" >
+        <div class="card-body">
+          <div style="display: flex; flex-direction: row">
+            <h5 class="card-title"> {{task.name}} </h5>
+          </div>
+          <a href="{% url 'tasks' task.pk %}" class="btn btn-primary">Подробно</a>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% endif %}
+{% endblock %}

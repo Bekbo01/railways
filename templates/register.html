@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Register</title>
+{% endblock %}
+
+{% block body %}
+
+    {% if form.is_multipart %}
+        <form action="{% url 'register' %}" method="post" enctype="multipart/form-data">
+    {% else %}
+        <form action="{% url 'register' %}" method="post">   
+    {% endif %}
+        {% csrf_token %}
+        
+        {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }}
+            {{ field }}
+        </div>
+        {% endfor %}
+        <input class="btn btn-primary mt-3" type="submit">
+
+    </form>
+
+{% endblock %}
