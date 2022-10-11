@@ -1,23 +1,4 @@
-# Django User Authentication Template
-
-This is a django user authentication project that you can always build upon.
-
-## Featuring/Functionality
-    - Registration Feature
-    - Login Feature
-    - Logout Feature
-    - Reset password
-    - with boostrap enabled
-
-## Screenshots
-| Home | Log In | Create an account |
-| -------|--------------|-----------------|
-| <img src="https://raw.githubusercontent.com/winninggodspower/Django_user_authentication_template/master/Screenshots/home.png" width="200"> | <img src="https://raw.githubusercontent.com/winninggodspower/Django_user_authentication_template/master/Screenshots/login.png" width="200"> | <img src="https://raw.githubusercontent.com/winninggodspower/Django_user_authentication_template/master/Screenshots/create_an_account.png" width="200"> |
-
-| Password reset | verifying page | Password change |
-| ---------------|------------------|-----------------|
-| <img src="https://raw.githubusercontent.com/winninggodspower/Django_user_authentication_template/master/Screenshots/password_reset.png" width="200"> | <img src="https://raw.githubusercontent.com/winninggodspower/Django_user_authentication_template/master/Screenshots/verifying_page.png" width="200"> | <img src="https://raw.githubusercontent.com/winninggodspower/Django_user_authentication_template/master/Screenshots/change_password.png" width="200"> |
-
+# Django Railways tracker app
 
 ## Installation
 
@@ -26,7 +7,7 @@ This is a django user authentication project that you can always build upon.
 ### Clone the project
 
 ```git
-git clone https://github.com/winninggodspower/Django_user_authentication_template.git
+git clone https://github.com/Bekbo01/railways.git
 ```
 
 ### create a virtual environment
